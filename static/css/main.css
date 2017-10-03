@@ -1,0 +1,92 @@
+body {
+   background: url('/static/img/bgimage.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: Georgia, serif;
+  color: #000000;
+}
+
+.container {
+	background-color: rgba(255, 255, 255, 0.20);
+	margin-left: 20px;
+	padding: 50px 50px;
+	width: 30%;
+	min-height: 50%;
+}
+
+h1 {
+	font-weight: 3000;
+	font-size: 28px;
+	margin-bottom: 8px;
+}
+
+h2 {
+	font-size: 24px;
+	margin-bottom: 8px;
+}
+
+.personal-statement p {
+	line-height: 1.3;
+	margin: 16px 0;
+}
+
+.lists {
+	margin-bottom: 48px;
+	overflow: hidden;
+}
+
+.list-box {
+	float: left;
+	width: 50%;
+	margin-bottom: 16px;
+}
+
+.list-box h3 {
+	font-size: 20px;
+	margin-bottom: 10px;
+	font-weight: 600;
+}
+
+.list-box ul {
+	padding-left: 18px;
+	list-style: square outside none;
+}
+
+.list-box ul li {
+	padding-left: 3px;
+	margin-bottom: 12px;
+}
+
+ul.contact {
+	list-style: none;
+}
+
+ul.contact li {
+	display: inline-block;
+}
+.icon {
+	display: block;
+	width: 40px;
+	height: 40px;
+	margin: 3px;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+.email {
+	background: url('img/email.png') no-repeat center center;
+}
+
+.twitter {
+	background: url('img/twitter.png') no-repeat center center;
+}
+
+.facebook {
+	background: url('img/fb.png') no-repeat center center;
+}
+
+

@@ -1,0 +1,7 @@
+flask-env/*
+venv/*
+.vscode/*
+.cache/*
+__pycache__/*
+*.pyc
+.vscode
