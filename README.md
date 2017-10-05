@@ -1,6 +1,6 @@
 # Yummy-Flask 
 
-
+[![Build Status](https://travis-ci.org/ZeratulXjs/Yummy-Flask.svg?branch=working)](https://travis-ci.org/ZeratulXjs/Yummy-Flask)
 
 Self Learning Clinic September 2017
 
