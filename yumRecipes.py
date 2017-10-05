@@ -1,8 +1,8 @@
 # user accounts will be derived from this class 
 
 class users(object):
-    def __init__(self, uname, password)
-    regusers = {}
+    def __init__(self, uname, password):
+        regusers = {}
 
 
 class new_user(object):
@@ -14,23 +14,20 @@ class new_user(object):
         # Checking that the uname and password are not empty  
         if not uname or password:
             print "Please enter a username or password"
-        elif:
-            if key in regusers.keys()
-                print "Please enter a unique username"
+        elif key in regusers.keys():            
+            print "Please enter a unique username"
         else:
             regusers.update({'uname':password})
 
     def login(self, uname, password):
         if not uname or password:
-                print "Please enter a username or password"
-        elif:
-            if uname not in regusers.keys()
-                print "User does not exist"   
+            print "Please enter a username or password"
+        elif uname not in regusers.keys():
+            print "User does not exist"   
 
-        else:
-            if uname in regusers.keys()
-                if regusers[key] == password:
-                    print "You're in"
+        elif uname in regusers.keys():
+            if regusers[key] == password:
+                print "You're in"
                     #Link to user's recipe dictionaries(categories and recipes)
     
 

@@ -7,21 +7,21 @@ Self Learning Clinic September 2017
 
 A web app that allows users to create, save and share awesome food recipes.
 
-#About
+# About
 A project developed as part of the Andela Bootcamp Sept 2017
 
-#Core applications/programs used 
+# Core applications/programs used 
 1. Python 2.7
 2. Jquery 
 3. Flask v0.12+
 
 The `requirements.txt` file documents the flask dependencies
 
-#Important links
--[Pivotal Tracker](https://www.pivotaltracker.com/n/projects/2113189)
--[Github pages preview](https://zeratulxjs.github.io/Yummy-Flask/templates/)
+# Important links
+1. [Pivotal Tracker](https://www.pivotaltracker.com/n/projects/2113189)
+2. [Github pages preview](https://zeratulxjs.github.io/Yummy-Flask/templates/)
 
-#How to use flask to view web app
+# How to use flask to view web app
 I am assuming you are using an Ubuntu machine. 
 
 1. Clone the repository to your computer
