@@ -1,16 +1,38 @@
 # user accounts will be derived from this class 
 
-class User(object):
-    def __init__(self, email, password):
-        self.email = str(email)
+class users(object):
+    def __init__(self, uname, password)
+    regusers = {}
+
+
+class new_user(object):
+    def __init__(self, uname, password):
+        self.uname = str(uname)
         self.password = str(password)
         
-        # Checking that the email and password are not empty  
-        if not email:
-            print "Please enter a valid email address"
-        if not password:
-            print "Please set a password"
-        regusers = set()
+    def signup(self, uname, password):
+        # Checking that the uname and password are not empty  
+        if not uname or password:
+            print "Please enter a username or password"
+        elif:
+            if key in regusers.keys()
+                print "Please enter a unique username"
+        else:
+            regusers.update({'uname':password})
+
+    def login(self, uname, password):
+        if not uname or password:
+                print "Please enter a username or password"
+        elif:
+            if uname not in regusers.keys()
+                print "User does not exist"   
+
+        else:
+            if uname in regusers.keys()
+                if regusers[key] == password:
+                    print "You're in"
+                    #Link to user's recipe dictionaries(categories and recipes)
+    
 
 
 # Recipe categories will be set by this class   
@@ -18,13 +40,25 @@ class RecipeCategory(object):
     def __init__(self, name, description):
         self.name = name
         self.description = description
+        recipe_cats = {}
 
-    def __del__(self):
-        print 'Recipe Category deleted'
+    def del_cat(self, cat):
+        if cat in recipe_cats:
+            del recipe_cats[cat]
+            print 'Recipe Category deleted'
+        else:
+            print 'Category does not exits'
+
     def edit_name(self, category_name):
-        pass
+        
+        if key in regusers.keys()
+                print "Please enter a unique username"
+        else:
+            regusers.update({'uname':password})
+       
+
     def edit_description(self, description):
-        pass
+        
     def get_recipes(self):
         pass
     def add_recipe(self):

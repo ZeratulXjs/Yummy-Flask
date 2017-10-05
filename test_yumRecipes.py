@@ -5,11 +5,11 @@ from yumRecipes import *
 class ValidTestCase(unittest.TestCase):
     
     def setUp(self):
-        self.User = User('caesar', 'abc')
+        self.users = users('caesar', 'abc')
         self.RecipeCategory = RecipeCategory('cakes', 'baked goods')
         self.recipe = Recipe('fudge', ('Add chocolate','Add butter','Bake for 15min'))        
     def test_user(self):
-        self.assertTrue(User, 'caesar')
+        self.assertTrue(users, 'caesar')
     def test_RecipeCategory(self):
         self.assertTrue(RecipeCategory, "'cakes','baked goods'")
 
@@ -25,11 +25,11 @@ class ValidTestCase(unittest.TestCase):
 class EmptyTestCase(unittest.TestCase):
 
     def test_emptyemail(self):
-        self.User = User('','abc')
-        self.assertTrue(User, ValueError)
+        self.users = users('','abc')
+        self.assertTrue(users, ValueError)
     def test_emptypwd(self):
-        self.User = User('caesar', '')
-        self.assertTrue(User, ValueError)
+        self.User = users('caesar', '')
+        self.assertTrue(users, ValueError)
 
 if __name__ == '__main__':
     unittest.main()

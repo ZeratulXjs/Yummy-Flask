@@ -1,23 +1,51 @@
 # Yummy-Flask 
 
+
+
 Self Learning Clinic September 2017
 
-# Important links
-<p><a href="https://www.pivotaltracker.com/n/projects/2113189">PivotalTracker</a></p>
-<p><a href="https://zeratulxjs.github.io/andela-slc/templates/">GitHub Pages</a></p>
 
-# Yummy Recipes
-The task is to create a Yummy recipes website that allows users to create, save and share awesome food recipes.
+A web app that allows users to create, save and share awesome food recipes.
 
-It must have the following features;
-<p>-Users create accounts</p>
-<p>-Users can log in</p>
-<p>-Users create, view, update and delete recipe categories</p>
-<p>-Users can create, view, update or delete recipes in existing categories</p>
+#About
+A project developed as part of the Andela Bootcamp Sept 2017
 
-# Daily tasks
-<p>Day 1. Create designs of Homepage and login page. </p>
-<p>Day 2. Add TDD features and OOP app code</p>
-<p>Day 3. Integrate to Flask</p>
-<p>Day 4. Deploy to Heroku</p>
-<p>Day 5. Add functionality to app</p>
+#Core applications/programs used 
+1. Python 2.7
+2. Jquery 
+3. Flask v0.12+
+
+The `requirements.txt` file documents the flask dependencies
+
+#Important links
+-[Pivotal Tracker](https://www.pivotaltracker.com/n/projects/2113189)
+-[Github pages preview](https://zeratulxjs.github.io/Yummy-Flask/templates/)
+
+#How to use flask to view web app
+I am assuming you are using an Ubuntu machine. 
+
+1. Clone the repository to your computer
+
+    ```
+    git clone https://github.com/ZeratulXjs/Yummy-Flask.git
+    ```
+2. In your terminal, enter the directory YummyRecipes
+
+    ```
+    cd YummyFlask
+    ```
+3. Create and activate your virtualenv. #
+
+    ```
+    virtualenv flaskenv
+
+    source flaskenv/bin/activate
+    ```
+4. Install the packages in requirements.txt
+
+    ``` pip install -r requirements.txt ```
+
+5. To start the app, run the following commands in succession still in the same directory
+
+    ```flask app.py ```
+

@@ -1,0 +1,1 @@
+web: sh -c 'gunicorn --workers=1 run:app
