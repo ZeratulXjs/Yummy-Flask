@@ -11,7 +11,7 @@ class new_user(object):
         self.password = str(password)
         
     def signup(self, uname, password):
-        # Checking that the uname and password are not empty  
+         Checking that the uname and password are not empty  
         if not uname or password:
             print "Please enter a username or password"
         elif key in regusers.keys():            

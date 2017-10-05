@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 from yumRecipes import *
 
 app = Flask(__name__)
-users = users(uname, password)
+#users = users(uname, password)
 
 @app.route('/', methods=['POST','GET'])
 def index():
