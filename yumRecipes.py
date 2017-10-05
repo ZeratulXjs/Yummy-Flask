@@ -11,7 +11,7 @@ class new_user(object):
         self.password = str(password)
         
     def signup(self, uname, password):
-         Checking that the uname and password are not empty  
+        #Checking that the uname and password are not empty  
         if not uname or password:
             print "Please enter a username or password"
         elif key in regusers.keys():            
@@ -48,14 +48,14 @@ class RecipeCategory(object):
 
     def edit_name(self, category_name):
         
-        if key in regusers.keys()
+        if key in regusers.keys():
                 print "Please enter a unique username"
         else:
             regusers.update({'uname':password})
        
 
     def edit_description(self, description):
-        
+        pass
     def get_recipes(self):
         pass
     def add_recipe(self):

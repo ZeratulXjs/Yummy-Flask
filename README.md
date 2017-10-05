@@ -12,8 +12,7 @@ A project developed as part of the Andela Bootcamp Sept 2017
 
 # Core applications/programs used 
 1. Python 2.7
-2. Jquery 
-3. Flask v0.12+
+2. Flask v0.12+
 
 The `requirements.txt` file documents the flask dependencies
 
@@ -32,7 +31,7 @@ I am assuming you are using an Ubuntu machine.
 2. In your terminal, enter the directory YummyRecipes
 
     ```
-    cd YummyFlask
+    cd Yummy-Flask
     ```
 3. Create and activate your virtualenv. #
 
@@ -45,7 +44,7 @@ I am assuming you are using an Ubuntu machine.
 
     ``` pip install -r requirements.txt ```
 
-5. To start the app, run the following commands in succession still in the same directory
+5. To start the app, run the following commands in the same directory
 
     ```flask app.py ```
 

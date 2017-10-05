@@ -9,12 +9,14 @@ def index():
     return render_template("index.html")
 
 @app.route('/signup' , methods=['POST','GET'])
-def signup_success():
-    uname = request.form['uname']
-    password = request.form['password']
-    user = users(uname, password)
+def signup():
+    if request.method==['POST']:
+        
+        uname = request.form['uname']
+        password = request.form['password']
+        user = users(uname, password)
     
-    return render_template("signup_success.html")
+    return render_template("signup.html")
 
 @app.route('/dash', methods=['POST','GET'])
 def dash():
