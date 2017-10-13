@@ -4,50 +4,112 @@
 		<meta charset="UTF-8" >
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href= {{ url_for('static', filename='css/bootstrap.min.css') }}>
-		<title>Yummy recipes</title>	 
+    <title>Yummy recipes</title>	 
+    <link rel="icon" type="image/png" href= {{ url_for('static', filename='img/favicon.ico') }}> 
+  </head>
 
-	</head>
-	<body style="background-image: url(../static/img/buffet.jpg)">
-		<div class="container-fluid">
-           <div class="col-sm-8 col-sm-offset-2">
-                <div class="panel panel-success" style="max-width: 90%">
-                    <div class="panel-heading"><h1 class="text-center text-primary">  YUMMY RECIPES </h1></div>
-                    <div class="panel-body">
-  	                <h2 class="text-center text-success">Changing the way you cook!</h2>
-    	            </div>
-        	    </div>
-        	</div>
-       </div>
-		<div class="container-fluid">
-			<div class="col-sm-8 col-sm-offset-4">
-				<div class="panel panel-success" style="max-width: 50%" >
-						<div class="panel-heading"><h3>Log-in to continue sharing</h3></div>
-						<div class="panel-body">
+{% if uname %}
+<!-- Checks if user (uname) is logged in and displays their content. -->
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span> 
+        </button>
+        <a class="navbar-brand" href="#">Yummy Recipes</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#"> {{ uname }}'s Recipes </a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><button class="btn btn-danger navbar-btn" data-target="/">Logout</button></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <body style="background-image: url(../static/img/buffet.jpg)">
+  
+    <div class="container">
+      <div class="container-fluid">
+        <div class="col-sm-8 col-sm-offset-4">
+          <div class="panel panel-success" style="max-width: 50%" >
+            <div class="panel-heading"><h3>Site under construction</h3></div>
+              <div class="panel-body">
+                <h3> {{ uname }}'s Recipes go here.  </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 
-							<form action="#"  method="POST">
-								<div class="form-group">
-									<div class="form-group">									
-										<label><b>User name</b></label>
-										<input name='uname' type="text" placeholder="Enter User name" class="form-control" required>
-									</div>
-									<div class="form-group">
-										<label><b>Password</b></label>
-										<input name="password" type="password" placeholder="Enter Password" class="form-control" required>
-									</div>
-									<button type="submit" class="btn btn-success">Login</button>
-									<button type="button" class="btn btn-danger">Cancel</button>					
-									<div class="checkbox">
-										<label>
-										<input type="checkbox">Remember me <a href='#'> Forgot password?</a>
-										</label>
-									</div>
-									<h2><span>No account?<a href="{{ url_for('signup') }}"> Signup here!</a></span>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</body>
+{% else %}
+<!-- Login page is generated if no user is detected -->
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span> 
+        </button>
+        <a class="navbar-brand" href="#">Yummy Recipes</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><button class="btn btn-success navbar-btn">Login</button></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <body style="background-image: url(../static/img/buffet.jpg)">
+    <div class="container-fluid">
+      <div class="col-sm-8 col-sm-offset-4">
+        <div class="panel panel-success" style="max-width: 50%">
+          <div class="panel-heading">
+            <p> <h2 class="text-center text-primary">  YUMMY RECIPES </h2> </p> 
+            <p> <h3 class="text-center text-success">Changing the way you cook!</h3> </p> 
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="col-sm-8 col-sm-offset-4">
+          <div class="panel panel-success" style="max-width: 50%" >
+            <div class="panel-heading"><h3>Log-in to continue sharing</h3></div>
+              <div class="panel-body">
+      
+                <form action="#"  method="POST">
+                  <div class="form-group">
+                    <div class="form-group">									
+                      <label><b>User name</b></label>
+                      <input name='uname' type="text" placeholder="Enter User name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                      <label><b>Password</b></label>
+                      <input name="password" type="password" placeholder="Enter Password" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-success">Login</button>
+                    <button type="button" class="btn btn-danger">Cancel</button>					
+                    <div class="checkbox">
+                      <label>
+                      <input type="checkbox">Remember me <a href='#'> Forgot password?</a>
+                      </label>
+                    </div>
+                    <h2><span>No account?<a href="{{ url_for('signup') }}"> Signup here!</a></span>
+                  </div>
+                </form>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endif %}
+
+  </body>
 </html>

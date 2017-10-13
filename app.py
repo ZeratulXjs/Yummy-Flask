@@ -5,8 +5,9 @@ app = Flask(__name__)
 #users = users(uname, password)
 
 @app.route('/', methods=['POST','GET'])
-def index():
-    return render_template("index.html")
+@app.route('/<uname>', methods=['GET', 'POST'])
+def userdash(uname=None): 
+    return render_template("index.html", uname=uname)
 
 @app.route('/signup' , methods=['POST','GET'])
 def signup():
@@ -17,15 +18,6 @@ def signup():
         user = users(uname, password)
     
     return render_template("signup.html")
-
-@app.route('/dash', methods=['POST','GET'])
-def dash():
-    return render_template("dashboard.html")
-
-# @app.route('/dash/<str:usr')
-# def user_dash(usr):
-#   users.get(usr)
-#   return render_template("dashboard.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
