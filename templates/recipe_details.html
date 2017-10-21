@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <div class="col-sm-8 col-sm-offset-4">
+      <div class="panel panel-success" style="max-width: 50%">
+        <div class="panel-heading"><h2>{{recipe.Title}}</h2><small>Written by {{recipe.Author}}</small></div>
+          <div class="panel-body">
+            <h3>{{recipe.Steps | safe}}</h3>
+          </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

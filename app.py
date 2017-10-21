@@ -51,13 +51,12 @@ def login():
             return redirect(url_for('dashboard'))
           else: 
             flash('Password incorrect', 'danger')
-        break
-      else:
-        flash('User not found. Please Sign up', 'warning')   
+        else:
+          flash('User not found. Please Sign up', 'warning')   
           
     return render_template("login.html")
 
-# Define authorisation to access restricted parts of the app
+# Determine authorisation to access restricted parts of app
 def user_logged_in(f):
   @wraps(f)
   def wrap(*args, **kwargs):
@@ -66,7 +65,7 @@ def user_logged_in(f):
     else:
       flash ('Unauthorised. Please login or signup', 'danger')
       return redirect(url_for('signup'))
-  return wrap 
+  return wrap
 
 
 # Log out of session 
@@ -103,11 +102,62 @@ def add_recipe():
     return redirect(url_for('dashboard'))
   return render_template("add_recipe.html", form=form)
 
-# List of recipes
-@app.route('/recipe/<title>', methods = ['POST', 'GET'])
-def recipe(title):
-  return render_template("recipes.html", title=title) 
+# Edit a recipe 
+@app.route('/edit_recipe/<title>', methods = ['POST', 'GET'])
+@user_logged_in
+def edit_recipe(title):  
+  for recipe in recipe_list:
+    if recipe['Title'] == title:
+      form = RecipeForm(request.form)
+      form.title.data = recipe['Title']
+      form.steps.data = recipe['Steps']
 
+      if request.method == 'POST' and form.validate():
+        title_new = form.title.data
+        steps_new = form.steps.data
+
+        recipe[title_new] = recipe.pop(title)
+        recipe[steps_new] = recipe.pop(steps)
+
+        flash('Recipe edited!', 'success')
+        app.logger.info('Recipe list : %s', recipe_list)
+        return redirect(url_for('dashboard'))
+      return render_template("edit_recipe.html", form=form)
+
+# Delete a recipe
+@app.route('/delete_recipe/<title>', methods = ['POST'])
+@user_logged_in
+def delete_recipe(title):
+  for recipe in recipe_list:
+    if recipe['Title'] == title:
+      del recipe
+
+      flash('Recipe deleted!', 'success')
+      app.logger.info('Recipe list : %s', recipe_list)
+      return redirect(url_for('dashboard'))
+    return render_template("del_recipe.html", form=form)
+
+
+# List of recipes
+@app.route('/recipes')
+@user_logged_in
+def recipes():
+  if not recipe_list:
+    flash('No recipes added yet', 'warning')
+  else:
+    return render_template("recipes.html", recipe_list=recipe_list) 
+
+# Single recipe
+@app.route('/recipe_details/<title>')
+@user_logged_in
+def single_recipe(title):
+  for recipe in recipe_list:
+    if recipe['Title'] == title:
+      return render_template("recipe_details.html", recipe=recipe)
+  else:
+    flash('Recipe not found', 'danger')
+
+  
 
 if __name__ == "__main__":
     app.secret_key = urandom(32)

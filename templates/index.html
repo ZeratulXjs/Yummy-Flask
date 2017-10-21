@@ -2,10 +2,18 @@
 
 {% block body %}
 
-<div class="jumbotron text-center">
-  <h1>YUMMY RECIPES</h1>
-  <p class="lead">Changing the way you cook!</p>
-  <p class="lead">Create and share your favourite recipes.</p>
-</div>
+  <div class="jumbotron text-center">
+    <h1>YUMMY RECIPES</h1>
+    <p class="lead">Changing the way you cook!</p>
+    <p class="lead">Create and share your favourite recipes.</p>
+
+    {% if not session.logged_in %}
+    
+      <a href="login" class="btn btn-success btn-lg">LOG IN</a>
+      <a href="signup" class="btn btn-primary btn-lg">SIGN UP</a>
+    
+    {% endif %}
+
+  </div>
 
 {% endblock %}

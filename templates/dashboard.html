@@ -24,7 +24,12 @@
             <td>{{recipe.Title}}</td>
             <td>{{recipe.Author}}</td>
             <td><a href="edit_recipe/{{recipe.Title}}" class="btn btn-default pull-right">Edit</a></td>
-            <td><a href="#" class="btn btn-danger">Delete</a></td>
+            <td>
+              <form action="{{url_for('delete_recipe', title=recipe.Title)}}" method="POST">
+                <input type="hidden" name="method" value="DELETE">
+                <input type="submit" value="Delete" class="btn btn-danger">
+              </form>
+            </td>
           </tr>
 
         {% endfor %}
