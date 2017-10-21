@@ -1,7 +1,38 @@
 {% extends 'layout.html' %}
 
-  {% block body%}
+{% block body%}
 
-    <h2>Your dash</h2>
+  <div class="jumbotron text-center">
+    <h2>{{session.username}}'s Dashboard</p></h2>
+    <a class="btn btn-warning" href="/add_recipe">Add recipe</a>
+   
+    {% if not recipe_list %}
+      <!-- if there are no recipes, display nothing on the dashboard -->
+      
+    {% else %}
+      <!-- else display the recipes found in recipe_list -->
+      <hr>
+      <table class="table">
+        <tr class="active">
+          <th class="text-center">Title</th>
+          <th class="text-center">Author</th>
+          <th></th>
+          <th></th>
+        </tr>
+        {% for recipe in recipe_list %}
+          <tr>
+            <td>{{recipe.Title}}</td>
+            <td>{{recipe.Author}}</td>
+            <td><a href="edit_recipe/{{recipe.Title}}" class="btn btn-default pull-right">Edit</a></td>
+            <td><a href="#" class="btn btn-danger">Delete</a></td>
+          </tr>
 
-  {% endblock %}
+        {% endfor %}
+        
+      </table>
+    {% endif %}
+
+  </div>
+
+
+{% endblock %}

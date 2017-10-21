@@ -1,16 +1,19 @@
-from flask import Flask, render_template, request, session, redirect, url_for, logging, flash 
-from passlib.hash import sha256_crypt
 from os import urandom
-from yumRecipes import Recipe, SignupForm
+from flask import Flask, render_template, request, redirect, url_for, session, flash
+from passlib.hash import sha256_crypt
+from functools import wraps
+from yumRecipes import RecipeForm, SignupForm
 
 app = Flask(__name__)
 
+# These lists will hold dictionary data and serve as the db's
 users = []
+recipe_list = []
 
 # This is the index route that connects to the home view
 @app.route('/', methods=['POST','GET'])
-def index(): 
-  return render_template("index.html", )
+def index():
+  return render_template("index.html")
 
 # Signing up without a database
 @app.route('/signup' , methods=['POST','GET'])
@@ -31,7 +34,7 @@ def signup():
     return render_template('signup.html', form=form)
 
 
-# This is the login route that connects to the login view
+# Login after signing up
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
@@ -42,26 +45,68 @@ def login():
         if item['user'] == uname:
           password_real = item['pwd']                  
           if sha256_crypt.verify(password_candidate, password_real):
+            session['logged_in'] = True
+            session['username'] = uname
             flash('Login successful!', 'success')
-            return redirect (url_for('dashboard'))
+            return redirect(url_for('dashboard'))
           else: 
             flash('Password incorrect', 'danger')
-        else:
-          flash('User not found. Please Sign up', 'warning')   
+        break
+      else:
+        flash('User not found. Please Sign up', 'warning')   
           
     return render_template("login.html")
 
+# Define authorisation to access restricted parts of the app
+def user_logged_in(f):
+  @wraps(f)
+  def wrap(*args, **kwargs):
+    if 'logged_in' in session:
+      return f(*args, **kwargs)
+    else:
+      flash ('Unauthorised. Please login or signup', 'danger')
+      return redirect(url_for('signup'))
+  return wrap 
 
 
-my_recipes = Recipe()
-nu_recipes = my_recipes.add_recipes()
-@app.route('/recipes', methods = ['POST', 'GET'])
-def recipes():
-  return render_template("recipes.html", nu_recipes = nu_recipes)
+# Log out of session 
+@app.route('/logout')
+@user_logged_in
+def logout():
+  session.clear()
+  flash('You are logged out', 'danger')
+  return redirect(url_for('login'))
 
+# User dashboard
+@app.route('/dashboard', methods = ['POST', 'GET'])
+@user_logged_in
+def dashboard():
+  if not recipe_list:
+    flash('No recipes yet, add one!', 'warning')
+    return render_template("dashboard.html")
+  else:
+    return render_template("dashboard.html", recipe_list=recipe_list)
+
+# Add a recipe 
+@app.route('/add_recipe', methods = ['POST', 'GET'])
+@user_logged_in
+def add_recipe():
+  form = RecipeForm(request.form)
+  if request.method == 'POST' and form.validate():
+    title = form.title.data
+    steps = form.steps.data
+
+    recipe_list.append(dict({'Title':title,'Steps':steps, 'Author':session['username']}))
+
+    flash('Recipe added!', 'success')
+    app.logger.info('Recipe list : %s', recipe_list)
+    return redirect(url_for('dashboard'))
+  return render_template("add_recipe.html", form=form)
+
+# List of recipes
 @app.route('/recipe/<title>', methods = ['POST', 'GET'])
 def recipe(title):
-  return render_template("recipes.html", title = title)
+  return render_template("recipes.html", title=title) 
 
 
 if __name__ == "__main__":

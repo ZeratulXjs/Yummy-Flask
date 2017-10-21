@@ -17,7 +17,16 @@
       {% include 'includes/_messages.html' %}
       {% block body%} {% endblock %}
     </div>
+
+    <!-- Importing CKEditor  -->
+    <script src ="{{ url_for('static', filename='ckeditor/ckeditor.js') }}"></script>
+
+    <script type="text/javascript">
+      // Use CKEditor to replace <textarea> tags by their id
+      CKEDITOR.replace('editor');
     
+    </script>
+
   </body>
 
 </html>
