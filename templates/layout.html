@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+  
+    <meta charset="UTF-8" >
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href= {{ url_for('static', filename='css/bootstrap.min.css') }}>
+    <title>Yummy recipes</title>	 
+    <link rel="icon" type="image/png" href= {{ url_for('static', filename='img/favicon.ico') }}> 
+
+  </head>
+    
+  <body style="background-image: url(../static/img/buffet.jpg)">
+    
+    {% include '/includes/_navbar.html' %}
+    <div class="container">
+      {% include 'includes/_messages.html' %}
+      {% block body%} {% endblock %}
+    </div>
+
+    <!-- Importing CKEditor  -->
+    <script src ="{{ url_for('static', filename='ckeditor/ckeditor.js') }}"></script>
+
+    <script type="text/javascript">
+      // Use CKEditor to replace <textarea> tags by their id
+      CKEDITOR.replace('editor');
+    
+    </script>
+
+  </body>
+
+</html>

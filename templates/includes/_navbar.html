@@ -1,0 +1,32 @@
+<nav class="navbar navbar-default" style="background-color:darkseagreen">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#">Yummy Recipes</a>
+    </div>
+    
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><button class="btn btn-default navbar-btn"><a href='/'>Home</a></button></li>
+        {% if session.logged_in %}
+          <li><button class="btn btn-default navbar-btn"><a href='/recipes'>Recipes</a></button></li>
+        {% endif %}
+      </ul>
+           
+      <ul class="nav navbar-nav navbar-right btn-group">
+        {% if session.logged_in %}
+          <li><button class="btn btn-default navbar-btn"><a href='/dashboard'> Dashboard </a></button></li>
+          <li><button class="btn btn-danger navbar-btn"><a href='/logout'> Logout </a></button></li>          
+        {% else %}
+          <li><button class="btn btn-default navbar-btn"><a href='/signup'> Signup </a></button></li>
+          <li><button class="btn btn-success navbar-btn"><a href='/login'> Login </a></button></li>
+        {% endif %}
+      </ul>
+      
+    </div>
+  </div>
+</nav>

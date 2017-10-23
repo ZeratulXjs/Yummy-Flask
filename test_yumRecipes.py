@@ -6,13 +6,10 @@ class ValidTestCase(unittest.TestCase):
     
     def setUp(self):
         self.users = users('caesar', 'abc')
-        self.RecipeCategory = RecipeCategory('cakes', 'baked goods')
         self.recipe = Recipe('fudge', ('Add chocolate','Add butter','Bake for 15min'))        
     def test_user(self):
         self.assertTrue(users, 'caesar')
-    def test_RecipeCategory(self):
-        self.assertTrue(RecipeCategory, "'cakes','baked goods'")
-
+    
     #Test the different class methods
     def test_Recipedetailadd(self):
         self.recipe = Recipe('fudge', [])
