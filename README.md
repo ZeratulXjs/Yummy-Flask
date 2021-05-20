@@ -1,6 +1,6 @@
 # Yummy-Flask 
 
-[![Build](https://travis-ci.org/ZeratulXjs/Yummy-Flask.png?branch=working)](https://travis-ci.com/ZeratulXjs/Yummy-Flask)
+[![Build](https://travis-ci.org/ZeratulXjs/Yummy-Flask.png?branch=working)](https://travis-ci.org/ZeratulXjs/Yummy-Flask)
 [![Coverage](https://coveralls.io/repos/github/ZeratulXjs/Yummy-Flask/badge.png?branch=working)](https://coveralls.io/github/ZeratulXjs/Yummy-Flask?branch=working)
 
 Self Learning Clinic September 2017

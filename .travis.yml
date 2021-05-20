@@ -1,1 +1,3 @@
 language: python
+script:
+  - coverage run test_yumRecipes.py && coveralls
