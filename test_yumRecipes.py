@@ -1,5 +1,6 @@
 import unittest  
 from yumRecipes import *
+from app import *
 
 #Test different classes for valid input acceptance and processing
 class ValidTestCase(unittest.TestCase):
@@ -25,7 +26,7 @@ class EmptyTestCase(unittest.TestCase):
         self.users = users('','abc')
         self.assertTrue(users, ValueError)
     def test_emptypwd(self):
-        self.User = users('caesar', '')
+        self.users = users('caesar', '')
         self.assertTrue(users, ValueError)
 
 if __name__ == '__main__':

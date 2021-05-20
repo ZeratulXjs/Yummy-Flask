@@ -5,6 +5,7 @@ from functools import wraps
 from yumRecipes import RecipeForm, SignupForm
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'thisissecret'
 
 # These lists will hold dictionary data and serve as the db's
 users = []
