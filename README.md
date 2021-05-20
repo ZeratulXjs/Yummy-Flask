@@ -47,5 +47,5 @@ I am assuming you are using a Windows machine
 
 5. To start the app, run the following commands in the same directory
 
-    ```flask app.py ```
+    ```flask run ```
 

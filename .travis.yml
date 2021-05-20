@@ -1,8 +1,8 @@
 language: python
 python:
-  - "2.7"
+  - "3.9.5"
 cache: pip
 install:
   - pip install -r requirements.txt
 script:
-  - coverage run test_yumRecipes.py && coveralls 
+  - coverage run test_yumRecipes.py && coveralls

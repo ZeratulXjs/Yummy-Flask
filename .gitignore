@@ -1,4 +1,5 @@
 venv-3.6/*
+flaskenv/*
 .vscode/*
 .cache/*
 __pycache__/*
