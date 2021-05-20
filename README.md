@@ -22,7 +22,7 @@ The `requirements.txt` file documents the flask dependencies
 2. [Github pages preview](https://zeratulxjs.github.io/Yummy-Flask/templates/)
 
 # How to use flask to view web app
-I am assuming you are using an Ubuntu machine. 
+I am assuming you are using a Windows machine
 
 1. Clone the repository to your computer
 
@@ -37,9 +37,9 @@ I am assuming you are using an Ubuntu machine.
 3. Create and activate your virtualenv. #
 
     ```
-    virtualenv flaskenv
+    python -m pip install virtualenv
 
-    source flaskenv/bin/activate
+    flaskenv\Scripts\activate
     ```
 4. Install the packages in requirements.txt
 
